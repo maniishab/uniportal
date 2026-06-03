@@ -14,6 +14,12 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
+
+        stage ("build the image") {
+            steps {
+                sh 'docker build -t uniportal:latest .'
+            }
+        }
     }
 
     }
